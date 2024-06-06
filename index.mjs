@@ -1,23 +1,33 @@
-// import add from './add.mjs';
+import chalk from 'chalk';
 
-// const results = add(6,6);
-// console.log(results);
+const log = console.log;
 
-// var a= '20';
-// var b= 20;
-// if (a==b) {
-//     console.log("Matched");
-// } else {
-//     console.log("Not Matched");
-// }
+// Combine styled and normal strings
+log(chalk.blue('Hello') + ' World' + chalk.red('!'));
 
-// const arr = [
-//     {id:1, name:"palash", price:999},
-//     {id:2, name:"apurwa", price:111},
-//     {id:3, name:"Shruti", price:222},
-// ];
-// let results = arr.filter(number=>number.price!==222);
+// Compose multiple styles using the chainable API
+log(chalk.blue.bgRed.bold('Hello world!'));
 
+// Pass in multiple arguments
+log(chalk.blue('Hello', 'World!', 'Foo', 'bar', 'biz', 'baz'));
 
-import { writeFileSync } from 'fs';
-writeFileSync("Hello.txt","code stpe bye step")
+// Nest styles
+log(chalk.red('Hello', chalk.underline.bgBlue('world') + '!'));
+
+// Nest styles of the same type even (color, underline, background)
+log(chalk.green(
+	'I am a green line ' +
+	chalk.blue.underline.bold('with a blue substring') +
+	' that becomes green again!'
+));
+
+// ES2015 template literal
+log(`
+CPU: ${chalk.red('90%')}
+RAM: ${chalk.green('40%')}
+DISK: ${chalk.yellow('70%')}
+`);
+
+// Use RGB colors in terminal emulators that support it.
+log(chalk.rgb(123, 45, 67).underline('Underlined reddish color'));
+log(chalk.hex('#DEADED').bold('Bold gray!'));
