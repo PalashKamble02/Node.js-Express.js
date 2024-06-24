@@ -15,9 +15,16 @@ app.get('/profile',(req,res)=>{
     const user = {
         name:'Palash',
         email:'palash@email.com',
-        city:'wardha'
+        city:'wardha',
     }
     res.render('profile',{user});
+});
+ app.get('/loops',(req,res)=>{
+    const uers = {
+        skills:['java','python','javascript','node']
+
+    }
+    res.render('loops',{uers});
 });
 
 app.get('/about',(req,res)=>{
