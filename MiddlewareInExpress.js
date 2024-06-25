@@ -10,7 +10,9 @@ const reqFilter = (req, res, next) => {
     next();
   }
 };
-app.get("/",reqFilter, (req, res) => {
+
+
+app.get("/", reqFilter, (req, res) => {
   res.send("Welcome to Home Page");
 });
 
