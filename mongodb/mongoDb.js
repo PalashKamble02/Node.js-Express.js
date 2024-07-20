@@ -1,5 +1,5 @@
  const {MongoClient} = require('mongodb');
- const url = 'mongodb://localhost:27017';
+ const url = 'mongodb://adminUser:password@localhost:27017/';
  const database= 'e-comm'
  const client = new MongoClient(url);
 
@@ -12,4 +12,4 @@
     console.log(response);
  }
 
- getData();
+console.log(getData());
